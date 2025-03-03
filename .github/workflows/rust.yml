@@ -16,10 +16,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Update Rust
+      run: rustup update
     - name: Get binstall
       run: curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
     - name: Get dioxus
       run: cargo binstall -y dioxus-cli
+    - name: Environment details
+      run: |
+        rustup toolchain list
+        dx --version
     - name: Build
       run: dx bundle
     - name: Upload macOS DMG

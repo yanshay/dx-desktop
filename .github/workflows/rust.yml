@@ -27,3 +27,9 @@ jobs:
       with:
         name: dx-desktop-macOS
         path: /Users/runner/work/dx-desktop/dx-desktop/target/dx/dx-desktop/bundle/macos/bundle/dmg/DxDesktop_0.1.0_aarch64.dmg
+    - name: Upload macOS Bundle Folder
+      uses: actions/upload-artifact@v4
+      with:
+        name: dx-desktop-macOS
+        path: /Users/runner/work/dx-desktop/dx-desktop/target/dx/dx-desktop/bundle/macos/bundle/macos/DxDesktop.app
+        

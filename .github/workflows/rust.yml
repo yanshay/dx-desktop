@@ -19,6 +19,6 @@ jobs:
     - name: Get binstall
       run: curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
     - name: Get dioxus
-      run: cargo binstall dioxus-cli
+      run: cargo binstall -y dioxus-cli
     - name: Build
       run: dx bundle

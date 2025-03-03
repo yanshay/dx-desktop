@@ -22,3 +22,8 @@ jobs:
       run: cargo binstall -y dioxus-cli
     - name: Build
       run: dx bundle
+    - name: Upload macOS DMG
+      uses: actions/upload-artifact@v4
+      with:
+        name: dx-desktop-macOS
+        path: /Users/runner/work/dx-desktop/dx-desktop/target/dx/dx-desktop/bundle/macos/bundle/dmg/DxDesktop_0.1.0_aarch64.dmg

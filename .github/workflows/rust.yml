@@ -65,5 +65,5 @@ jobs:
     - name: Upload Windows Setup
       uses: actions/upload-artifact@v4
       with:
-        name: dx-desktop-windows-msi
+        name: dx-desktop-windows-setup
         path: D:\a\dx-desktop\dx-desktop\target\dx\dx-desktop\bundle\windows\bundle/nsis/DxDesktop_0.1.0_x64-setup.exe

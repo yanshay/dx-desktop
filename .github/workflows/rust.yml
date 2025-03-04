@@ -53,6 +53,8 @@ jobs:
       run: |
         rustup toolchain list
         dx --version
+    - name: list files
+      run: tree /F
     - name: Build
       run: dx bundle
 

@@ -57,4 +57,9 @@ jobs:
       run: tree /F
     - name: Build
       run: dx bundle
+    - name: Upload Windows Installer
+      uses: actions/upload-artifact@v4
+      with:
+        name: dx-desktop-windows-installer
+        path: D:\a\dx-desktop\dx-desktop\target\dx\dx-desktop\bundle\windows\nsis\x64\nsis-output.exe
 

@@ -10,7 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  buildMac:
 
     runs-on: macos-latest
 
@@ -37,4 +37,22 @@ jobs:
       with:
         name: dx-desktop-macOS-folder
         path: /Users/runner/work/dx-desktop/dx-desktop/target/dx/dx-desktop/bundle/macos/bundle/macos/DxDesktop.app
-    
+
+  buildWindows:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Update Rust
+      run: rustup update
+    - uses: cargo-bins/cargo-binstall@main
+    - name: Get dioxus
+      run: cargo binstall -y dioxus-cli
+    - name: Environment details
+      run: |
+        rustup toolchain list
+        dx --version
+    - name: Build
+      run: dx bundle
+

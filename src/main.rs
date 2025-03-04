@@ -5,7 +5,13 @@ const MAIN_CSS: Asset = asset!("/assets/main.css");
 const HEADER_SVG: Asset = asset!("/assets/header.svg");
 
 fn main() {
-    dioxus::launch(App);
+    if cfg!(target_os = "windows") {
+        let user_data_dir = env::var("LOCALAPPDATA").expect("env var LOCALAPPDATA not found");
+        let cfg = dioxus_desktop::Config::new().with_data_directory(user_data_dir);
+        dioxus_desktop::launch::launch(app, vec![], vec![Box::new(cfg)])
+    } else {
+        dioxus::launch(app);
+    }
 }
 
 #[component]

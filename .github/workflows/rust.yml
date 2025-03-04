@@ -57,9 +57,13 @@ jobs:
       run: tree /F
     - name: Build
       run: dx bundle
-    - name: Upload Windows Installer
+    - name: Upload Windows Msi
       uses: actions/upload-artifact@v4
       with:
-        name: dx-desktop-windows-installer
-        path: D:\a\dx-desktop\dx-desktop\target\dx\dx-desktop\bundle\windows\nsis\x64\nsis-output.exe
-
+        name: dx-desktop-windows-msi
+        path: D:\a\dx-desktop\dx-desktop\target\dx\dx-desktop\bundle\windows\bundle/msi/DxDesktop_0.1.0_x64_en-US.msi
+    - name: Upload Windows Setup
+      uses: actions/upload-artifact@v4
+      with:
+        name: dx-desktop-windows-msi
+        path: D:\a\dx-desktop\dx-desktop\target\dx\dx-desktop\bundle\windows\bundle/nsis/DxDesktop_0.1.0_x64-setup.exe

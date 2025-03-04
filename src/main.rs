@@ -1,3 +1,5 @@
+use std::env;
+
 use dioxus::prelude::*;
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
@@ -8,9 +10,9 @@ fn main() {
     if cfg!(target_os = "windows") {
         let user_data_dir = env::var("LOCALAPPDATA").expect("env var LOCALAPPDATA not found");
         let cfg = dioxus_desktop::Config::new().with_data_directory(user_data_dir);
-        dioxus_desktop::launch::launch(app, vec![], vec![Box::new(cfg)])
+        dioxus_desktop::launch::launch(App, vec![], vec![Box::new(cfg)])
     } else {
-        dioxus::launch(app);
+        dioxus::launch(App);
     }
 }
 
